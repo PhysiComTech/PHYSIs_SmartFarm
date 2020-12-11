@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/bg_toolbar">
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ToolBarTitle"
+            android:text="@string/app_name"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <com.physicomtech.kit.smartfarm.customize.SerialNumberView
+                android:id="@+id/snv_setup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"
+                    android:text="PHYSIs Kit Setup" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_wifi_setup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/BtnTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="WiFi Setup"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPhysis" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"
+                    android:text="PHYSIs MQTT Connect" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/BtnTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="Connect"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Farm Monitoring"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_monitoring"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/BtnTheme"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="Start Monitoring"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/iv_temperature"
+                        android:layout_width="0px"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_temperature"/>
+
+                    <ImageView
+                        android:id="@+id/iv_humidity"
+                        android:layout_width="0px"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_humidity"/>
+
+                    <ImageView
+                        android:id="@+id/iv_illumination"
+                        android:layout_width="0px"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_illumination"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_temperature_val"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="00 ℃"/>
+
+                    <TextView
+                        android:id="@+id/tv_humidity_val"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="00 %"/>
+
+                    <TextView
+                        android:id="@+id/tv_illumination_val"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="00 %"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Farm Control"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_fan"
+                    android:paddingTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_fan_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:textStyle="bold"
+                    android:text="FAN SPEED\n0"/>
+
+                <Button
+                    android:id="@+id/btn_fan_speed1"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0"/>
+
+                <Button
+                    android:id="@+id/btn_fan_speed2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/ActionBtnTheme"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="1"/>
+
+                <Button
+                    android:id="@+id/btn_fan_speed3"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginVertical="8dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_pump"
+                    android:paddingTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pump_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:textStyle="bold"
+                    android:text="PUMP STATUS\nOFF"/>
+
+                <Button
+                    android:id="@+id/btn_pump_on"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/ActionBtnTheme"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="ON"/>
+
+                <Button
+                    android:id="@+id/btn_pump_off"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="OFF"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_illumination"
+                    android:paddingTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_led_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:textStyle="bold"
+                    android:text="LED STATUS\nOFF"/>
+
+                <Button
+                    android:id="@+id/btn_led_on"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/ActionBtnTheme"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="ON"/>
+
+                <Button
+                    android:id="@+id/btn_led_off"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="OFF"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
